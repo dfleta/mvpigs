@@ -15,24 +15,14 @@ def find_word(num_let, max_ssw):
             ssw = ssw + ord(letter)
 
         if ssw == max_ssw:
-<<<<<<< HEAD
             exactSswWords.append((ssw, word))
-=======
-            exactSswWords.append([ssw, word])
->>>>>>> c60da0b7aea5dab65b5cbcc23cb63f9eb3eb7487
         else:
             pass
 
     # assert exactSswWords[0][1] == "southern", "lista mal formada"
-<<<<<<< HEAD
     assert (888, "question") in exactSswWords
     assert (888, "security") in exactSswWords
     assert (888, "southern") in exactSswWords
-=======
-    assert [888, "question"] in exactSswWords
-    assert [888, "security"] in exactSswWords
-    assert [888, "southern"] in exactSswWords
->>>>>>> c60da0b7aea5dab65b5cbcc23cb63f9eb3eb7487
 
     return exactSswWords.pop()[-1]
 
