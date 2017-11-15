@@ -10,7 +10,7 @@ def find_word(num_let, max_ssw):
         return None
 
     exactSswWords = []
-    highestSsw = ""
+    highestSswWord = (0, "")
 
     for word in WORD_LIST:
         if len(word) != num_let:
@@ -23,15 +23,16 @@ def find_word(num_let, max_ssw):
         if ssw == max_ssw:
             exactSswWords.append((ssw, word))
         elif not exactSswWords and ssw < max_ssw:
-            highestSsw = word
+            if ssw >= highestSswWord[0]:
+                highestSswWord = (ssw, word)
         else:
             # ssw > max_ssw
             pass
 
     if exactSswWords:
         return exactSswWords.pop()[-1]
-    elif highestSsw:
-        return highestSsw
+    elif highestSswWord[-1]:
+        return highestSswWord[-1]
     else:
         return None
 
