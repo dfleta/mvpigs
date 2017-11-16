@@ -9,30 +9,26 @@ def find_word(num_let, max_ssw):
     if num_let == 0 or max_ssw == 0:
         return None
 
-    exactSswWords = []
-    highestSswWord = (0, "")
+    validScoreWords = [(0, None)]
 
     for word in WORD_LIST:
+
         if len(word) != num_let:
             continue
 
-        ssw = 0
+        score = 0
         for letter in word:
-            ssw = ssw + ord(letter)
+            score = score + ord(letter)
 
-        if ssw == max_ssw:
-            exactSswWords.append((ssw, word))
-        elif not exactSswWords and ssw < max_ssw:
-            if ssw >= highestSswWord[0]:
-                highestSswWord = (ssw, word)
+        if score <= max_ssw:
+            if score >= validScoreWords[-1][0]:
+                validScoreWords.append((score, word))
         else:
             # ssw > max_ssw
             pass
 
-    if exactSswWords:
-        return exactSswWords.pop()[-1]
-    elif highestSswWord[-1]:
-        return highestSswWord[-1]
+    if validScoreWords:
+        return validScoreWords.pop()[-1]
     else:
         return None
 
